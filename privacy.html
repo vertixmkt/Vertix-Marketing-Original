@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0b">
+  <meta name="robots" content="index, follow">
+
+  <title>Política de Privacidade — DMapp</title>
+  <meta name="description" content="Como tratamos seus dados na automação de DM do DMapp. Transparência, mínimo necessário, e seu controle em primeiro lugar.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0b;
+      --bg-elev: #111113;
+      --bg-card: #131316;
+      --border: rgba(255, 255, 255, 0.06);
+      --border-strong: rgba(255, 255, 255, 0.12);
+      --text: #f4f4f5;
+      --text-mute: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #e4e4e7;
+      --accent-glow: rgba(244, 244, 245, 0.04);
+      --serif: 'Fraunces', ui-serif, Georgia, serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      font-family: var(--sans);
+      font-feature-settings: 'cv11', 'ss01', 'ss03';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Subtle grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 25% 10%, rgba(255, 255, 255, 0.025) 0%, transparent 40%),
+        radial-gradient(circle at 75% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-strong);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    a:hover {
+      border-bottom-color: var(--text);
+      color: var(--text);
+    }
+
+    /* Layout */
+    .shell {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2rem) 6rem;
+    }
+
+    /* Header */
+    header.brand {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: clamp(3rem, 8vw, 5rem);
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 14px;
+      color: #000;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-name span {
+      color: var(--text-dim);
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: clamp(3rem, 7vw, 4.5rem);
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.25rem, 6vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-mute);
+    }
+
+    .lede {
+      font-size: clamp(1.0625rem, 2.2vw, 1.1875rem);
+      line-height: 1.55;
+      color: var(--text-mute);
+      max-width: 56ch;
+    }
+
+    .meta-line {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-line strong {
+      color: var(--text-mute);
+      font-weight: 500;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: clamp(2.5rem, 6vw, 3.5rem);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 3vw, 1.875rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    h2 .num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: -0.005em;
+      color: var(--text);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--text-mute);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 0.5rem 0 1rem 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      color: var(--text-mute);
+      line-height: 1.7;
+      margin-bottom: 0.375rem;
+      padding-left: 0.25rem;
+    }
+
+    li::marker {
+      color: var(--text-dim);
+    }
+
+    /* Highlight cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .card-label {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 0.625rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.9375rem;
+    }
+
+    /* Data table */
+    .data-table {
+      margin: 1.25rem 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .data-row {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-row:last-child {
+      border-bottom: none;
+    }
+
+    .data-row > div {
+      padding: 1rem 1.25rem;
+    }
+
+    .data-row > div:first-child {
+      background: var(--bg-elev);
+      font-family: var(--mono);
+      font-size: 0.8125rem;
+      color: var(--text);
+      border-right: 1px solid var(--border);
+    }
+
+    .data-row > div:last-child {
+      color: var(--text-mute);
+      font-size: 0.9375rem;
+    }
+
+    @media (max-width: 540px) {
+      .data-row {
+        grid-template-columns: 1fr;
+      }
+      .data-row > div:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: clamp(4rem, 10vw, 6rem);
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.02em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer a {
+      border: none;
+      color: var(--text-mute);
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* Selection */
+    ::selection {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--text);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
+      border: 3px solid var(--bg);
+      border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-dim);
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+      body::before { display: none; }
+      .shell { padding: 1rem; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <header class="brand">
+      <div class="logo-mark">D</div>
+      <div class="brand-name">DMapp <span>by Vertix Marketing</span></div>
+    </header>
+
+    <article>
+      <div class="hero">
+        <div class="eyebrow">Documento legal · v1.0</div>
+        <h1>Política de <em>Privacidade</em></h1>
+        <p class="lede">
+          Como tratamos os dados que passam pela automação de mensagens diretas do DMapp.
+          O mínimo necessário, com transparência total e seu controle em primeiro lugar.
+        </p>
+        <div class="meta-line">
+          <span><strong>Última atualização</strong>&nbsp; 18 de Abril, 2026</span>
+          <span><strong>Vigência</strong>&nbsp; A partir da publicação</span>
+        </div>
+      </div>
+
+      <section>
+        <h2><span class="num">01</span> Quem somos</h2>
+        <p>
+          Esta política descreve como o <strong>DMapp</strong>, operado por <strong>Vertix Marketing</strong>,
+          coleta, utiliza e protege as informações relacionadas à automação de respostas a comentários
+          em publicações do Instagram via mensagens diretas (DM).
+        </p>
+        <p>
+          O DMapp é uma ferramenta de uso pessoal e corporativo que utiliza as APIs oficiais da
+          Meta Platforms (Instagram Graph API e Messaging API) para automatizar o envio de mensagens
+          em resposta a interações públicas voluntárias dos usuários.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">02</span> Dados que coletamos</h2>
+        <p>
+          Coletamos apenas o estritamente necessário para o funcionamento da automação. Nenhum dado
+          é vendido, compartilhado com terceiros para fins comerciais ou utilizado fora do propósito
+          declarado.
+        </p>
+
+        <div class="data-table">
+          <div class="data-row">
+            <div>ID do usuário</div>
+            <div>Identificador interno do Instagram (IGSID) de quem comentou — necessário para envio da DM.</div>
+          </div>
+          <div class="data-row">
+            <div>Nome de usuário</div>
+            <div>O @username público de quem comentou.</div>
+          </div>
+          <div class="data-row">
+            <div>Texto do comentário</div>
+            <div>Apenas o conteúdo do comentário público, para identificar a palavra-chave configurada.</div>
+          </div>
+          <div class="data-row">
+            <div>ID do comentário</div>
+            <div>Identificador único do comentário, usado para responder publicamente quando configurado.</div>
+          </div>
+          <div class="data-row">
+            <div>ID da publicação</div>
+            <div>Identificador da publicação onde o comentário foi feito.</div>
+          </div>
+          <div class="data-row">
+            <div>Timestamp</div>
+            <div>Momento da interação, para controle de janela de mensagens (24h) e deduplicação.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">O que NÃO coletamos</div>
+          <p>
+            Senhas, dados financeiros, conteúdo privado, mensagens diretas anteriores,
+            histórico de navegação, localização geográfica ou qualquer informação fora do escopo
+            das interações públicas com as publicações monitoradas.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2><span class="num">03</span> Como usamos os dados</h2>
+        <p>Os dados coletados são utilizados exclusivamente para:</p>
+        <ul>
+          <li>Identificar comentários que contenham palavras-chave previamente configuradas;</li>
+          <li>Enviar a mensagem direta automatizada correspondente ao usuário que comentou;</li>
+          <li>Responder publicamente ao comentário, quando configurado;</li>
+          <li>Evitar o envio duplicado de mensagens à mesma pessoa (deduplicação);</li>
+          <li>Manter logs operacionais para depuração e melhoria do serviço.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">04</span> Base legal</h2>
+        <p>
+          O tratamento dos dados é realizado com base em:
+        </p>
+        <ul>
+          <li><strong>Consentimento implícito</strong> — ao comentar voluntariamente uma palavra-chave divulgada publicamente em uma publicação, o usuário manifesta interesse em receber o material correspondente via DM.</li>
+          <li><strong>Legítimo interesse</strong> — para fins operacionais como deduplicação e logs de execução.</li>
+          <li><strong>Cumprimento de obrigação legal</strong> — quando exigido por autoridades competentes.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">05</span> Retenção e exclusão</h2>
+        <p>
+          Os dados de deduplicação (par usuário + publicação) são mantidos por
+          <strong>até 30 dias</strong>, sendo automaticamente excluídos após esse prazo.
+        </p>
+        <p>
+          Logs operacionais são mantidos por até <strong>90 dias</strong> e então
+          permanentemente apagados.
+        </p>
+        <p>
+          Você pode solicitar a exclusão antecipada de qualquer dado a qualquer momento,
+          através do contato indicado ao final desta política.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">06</span> Compartilhamento</h2>
+        <p>
+          Os dados são compartilhados exclusivamente com a <strong>Meta Platforms</strong>
+          (Facebook/Instagram) através das APIs oficiais, conforme necessário para o envio
+          das mensagens.
+        </p>
+        <p>
+          Não compartilhamos dados com terceiros, parceiros comerciais, plataformas de
+          publicidade, ou qualquer outra entidade.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">07</span> Seus direitos (LGPD)</h2>
+        <p>
+          Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018),
+          você tem direito a:
+        </p>
+        <ul>
+          <li>Confirmar a existência de tratamento de seus dados;</li>
+          <li>Acessar seus dados;</li>
+          <li>Corrigir dados incompletos, inexatos ou desatualizados;</li>
+          <li>Solicitar anonimização, bloqueio ou eliminação de dados desnecessários;</li>
+          <li>Solicitar a portabilidade dos dados;</li>
+          <li>Revogar o consentimento e solicitar a exclusão dos dados;</li>
+          <li>Bloquear o recebimento de novas mensagens automáticas (basta nos comunicar).</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">08</span> Segurança</h2>
+        <p>
+          Implementamos medidas técnicas e organizacionais para proteger seus dados:
+          credenciais armazenadas de forma criptografada, conexões em HTTPS,
+          acesso restrito ao painel administrativo e rotação periódica de tokens de acesso.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">09</span> Uso das APIs Meta</h2>
+        <p>
+          O DMapp utiliza exclusivamente as APIs oficiais da Meta:
+        </p>
+        <ul>
+          <li><strong>Instagram Graph API</strong> — para receber notificações de comentários públicos;</li>
+          <li><strong>Instagram Messaging API</strong> — para envio de mensagens diretas dentro da janela de 24 horas após a interação do usuário, conforme as políticas da Meta.</li>
+        </ul>
+        <p>
+          O uso destas APIs respeita integralmente a
+          <a href="https://developers.facebook.com/terms/" target="_blank" rel="noopener noreferrer">Plataforma da Meta</a>
+          e a
+          <a href="https://developers.facebook.com/devpolicy/" target="_blank" rel="noopener noreferrer">Política de Desenvolvedores</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">10</span> Alterações</h2>
+        <p>
+          Esta política pode ser atualizada periodicamente. A data da última atualização
+          está indicada no topo do documento. Alterações materiais serão comunicadas
+          de forma clara aos usuários afetados.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">11</span> Contato</h2>
+        <p>
+          Para exercer qualquer direito previsto nesta política, esclarecer dúvidas
+          ou solicitar a exclusão de seus dados, entre em contato:
+        </p>
+        <div class="card">
+          <div class="card-label">Encarregado de Dados (DPO)</div>
+          <p>
+            <strong>Matheus Pinheiro</strong><br>
+            Vertix Marketing<br>
+            <a href="mailto:matheuspnh@gmail.com">matheuspnh@gmail.com</a>
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2026 Vertix Marketing — DMapp v1.0</span>
+        <span><a href="#top">Voltar ao topo ↑</a></span>
+      </footer>
+    </article>
+
+  </div>
+</body>
+</html>
